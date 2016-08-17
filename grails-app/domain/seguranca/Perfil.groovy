@@ -1,6 +1,6 @@
 package seguranca
 
-class Role {
+class Perfil {
 
 	String authority
 

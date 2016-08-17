@@ -31,3 +31,13 @@
 
 # "temporary" build files
 /target
+
+# projeto do idea
+/.idea
+/*.iml
+
+# nao sei o que eh
+/.slcache
+
+
+

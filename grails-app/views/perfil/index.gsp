@@ -1,9 +1,9 @@
-<%@ page import="seguranca.Role" %>
+<%@ page import="seguranca.Perfil" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'role.label', default: 'Role')}"/>
+    <g:set var="entityName" value="${message(code: 'perfil.label', default: 'Perfil')}"/>
     <title><g:message code="default.list.label" args="[entityName]"/></title>
 </head>
 
@@ -25,25 +25,25 @@
         <tr>
 
             <g:sortableColumn property="authority"
-                              title="${message(code: 'role.authority.label', default: 'Authority')}"/>
+                              title="${message(code: 'perfil.authority.label', default: 'Authority')}"/>
 
             <th style="width: 200px"></th>
         </tr>
 
         </thead>
         <tbody>
-        <g:each in="${roleInstanceList}" status="i" var="roleInstance">
+        <g:each in="${perfilInstanceList}" status="i" var="perfilInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                 <td><g:link action="exibir"
-                            id="${roleInstance.id}">${fieldValue(bean: roleInstance, field: "authority")}</g:link></td>
+                            id="${perfilInstance.id}">${fieldValue(bean: perfilInstance, field: "authority")}</g:link></td>
 
 
 
                 <td>
-                    <g:form url="[resource: roleInstance, action: 'excluir']" method="DELETE">
+                    <g:form url="[resource: perfilInstance, action: 'excluir']" method="DELETE">
                         <span class="buttons">
-                            <g:link class="edit" action="editar" resource="${roleInstance}"><g:message
+                            <g:link class="edit" action="editar" resource="${perfilInstance}"><g:message
                                     code="default.button.edit.label" default="Editar"/></g:link>
                             <g:actionSubmit class="delete" action="excluir"
                                             value="${message(code: 'default.button.delete.label', default: 'Excluir')}"
@@ -57,7 +57,7 @@
     </table>
 
     <div class="pagination">
-        <g:paginate total="${roleInstanceCount ?: 0}"/>
+        <g:paginate total="${perfilInstanceCount ?: 0}"/>
     </div>
 </div>
 </body>

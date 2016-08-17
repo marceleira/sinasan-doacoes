@@ -56,13 +56,13 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'roles', 'error')} ">
-    <label for="roles">
+<div class="fieldcontain ${hasErrors(bean: usuarioInstance, field: 'perfis', 'error')} ">
+    <label for="perfis">
         Roles
 
     </label>
-    <g:select name="roles" from="${seguranca.Role.list()}" multiple="multiple" optionKey="id" size="5"
-              value="${usuarioInstance?.roles*.id}" class="many-to-many"/>
+    <g:select name="perfis" from="${seguranca.Perfil.list()}" multiple="multiple" optionKey="id" size="5"
+              value="${usuarioInstance?.perfis*.id}" class="many-to-many"/>
 
 </div>
 

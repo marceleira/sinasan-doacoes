@@ -89,13 +89,13 @@
             </li>
         </g:if>
 
-        <g:if test="${usuarioInstance?.roles}">
+        <g:if test="${usuarioInstance?.perfis}">
             <li class="fieldcontain">
-                <span id="roles-label" class="property-label"><g:message code="usuario.roles.label"
-                                                                         default="Roles"/></span>
+                <span id="roles-label" class="property-label"><g:message code="usuario.perfis.label"
+                                                                         default="Perfis"/></span>
 
-                <g:each in="${usuarioInstance.roles}" var="r">
-                    <span class="property-value" aria-labelledby="roles-label"><g:link controller="role" action="exibir"
+                <g:each in="${usuarioInstance.perfis}" var="r">
+                    <span class="property-value" aria-labelledby="roles-label"><g:link controller="perfil" action="exibir"
                                                                                        id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
                 </g:each>
 

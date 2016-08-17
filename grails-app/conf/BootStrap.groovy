@@ -1,6 +1,6 @@
-import seguranca.Role
+import seguranca.Perfil
 import seguranca.Usuario
-import seguranca.UsuarioRole
+import seguranca.UsuarioPerfil
 
 class BootStrap {
 
@@ -12,11 +12,11 @@ class BootStrap {
             usuario = new Usuario(username: 'master', password: '123');
             usuario.save();
 
-            def role = new Role(authority: 'ROLE_USER');
-            role.save();
+            def perfil = new Perfil(authority: 'ROLE_USER');
+            perfil.save();
 
-            def usuarioRole = new UsuarioRole(usuario: usuario, role: role);
-            usuarioRole.save();
+            def usuarioPerfil = new UsuarioPerfil(usuario: usuario, perfil: perfil);
+            usuarioPerfil.save();
         }
 
     }

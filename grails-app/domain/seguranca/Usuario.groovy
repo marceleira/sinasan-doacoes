@@ -18,15 +18,15 @@ class Usuario {
 		password blank: false
 	}
 
-	static hasMany = [roles: Role]
+	static hasMany = [perfis: Perfil]
 
 	static mapping = {
 		password column: '`password`'
-		roles joinTable: [name: "usuario_role", key: 'usuario_id']
+		perfis joinTable: [name: "usuario_perfil", key: 'usuario_id']
 	}
 
-	Set<Role> getAuthorities() {
-		UsuarioRole.findAllByUsuario(this).collect { it.role }
+	Set<Perfil> getAuthorities() {
+		UsuarioPerfil.findAllByUsuario(this).collect { it.perfil }
 	}
 
 	def beforeInsert() {

@@ -1,9 +1,9 @@
-<%@ page import="seguranca.Role" %>
+<%@ page import="seguranca.Perfil" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'role.label', default: 'Role')}"/>
+    <g:set var="entityName" value="${message(code: 'perfil.label', default: 'Perfil')}"/>
     <title><g:message code="default.show.label" args="[entityName]"/></title>
 </head>
 
@@ -23,21 +23,21 @@
     </g:if>
     <ol class="property-list role">
 
-        <g:if test="${roleInstance?.authority}">
+        <g:if test="${perfilInstance?.authority}">
             <li class="fieldcontain">
-                <span id="authority-label" class="property-label"><g:message code="role.authority.label"
+                <span id="authority-label" class="property-label"><g:message code="perfil.authority.label"
                                                                              default="Authority"/></span>
 
-                <span class="property-value" aria-labelledby="authority-label"><g:fieldValue bean="${roleInstance}"
+                <span class="property-value" aria-labelledby="authority-label"><g:fieldValue bean="${perfilInstance}"
                                                                                              field="authority"/></span>
 
             </li>
         </g:if>
 
     </ol>
-    <g:form url="[resource: roleInstance, action: 'excluir']" method="DELETE">
+    <g:form url="[resource: perfilInstance, action: 'excluir']" method="DELETE">
         <fieldset class="buttons">
-            <g:link class="edit" action="editar" resource="${roleInstance}"><g:message code="default.button.edit.label"
+            <g:link class="edit" action="editar" resource="${perfilInstance}"><g:message code="default.button.edit.label"
                                                                                        default="Editar"/></g:link>
             <g:actionSubmit class="delete" action="excluir"
                             value="${message(code: 'default.button.delete.label', default: 'Excluir')}"
