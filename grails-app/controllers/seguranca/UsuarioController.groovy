@@ -1,10 +1,14 @@
 package seguranca
 
+import br.gov.sus.sinasan.doacao.exceptions.BusinessRuleException
 import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 
-
+@Transactional(readOnly = true)
 @Secured(['ROLE_USER'])
 class UsuarioController {
+
+    def usuarioService
 
     static allowedMethods = [salvar: "POST", excluir: "DELETE"]
 
@@ -27,23 +31,32 @@ class UsuarioController {
 
     }
 
+    @Transactional
     def salvar(Usuario usuarioInstance) {
         if (usuarioInstance == null) {
             notFound()
             return
         }
 
-        if (usuarioInstance.hasErrors()) {
-            respond usuarioInstance.errors, view:'editar'
-            return
+        // caso tenha selecionado uma opção, lista vem como string
+        if(params.perfis instanceof String) {
+            params.perfis = [params.perfis]
+        } else if (!params?.perfis) {
+            params.perfis = []
         }
 
-        usuarioInstance.save(flush:true)
+        try {
+            usuarioInstance = usuarioService.salvar(usuarioInstance, params.perfis)
+        } catch (BusinessRuleException e) {
+            respond e.objeto.errors, view:'editar'
+            return
+        }
 
         flash.message = message(code: 'default.updated.message', args: [message(code: 'usuario.label', default: 'Usuario'), usuarioInstance])
         redirect(action: 'exibir', id: usuarioInstance.id)
     }
 
+    @Transactional
     def excluir(Usuario usuarioInstance) {
 
         if (usuarioInstance == null) {
