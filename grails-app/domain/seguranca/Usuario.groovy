@@ -16,6 +16,7 @@ class Usuario {
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		perfis nullable: false
 	}
 
 	static hasMany = [perfis: Perfil]
