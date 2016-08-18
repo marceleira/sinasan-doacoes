@@ -12,7 +12,9 @@ class UsuarioService {
 
         Perfil perfil
 
-        usuarioInstance.perfis.clear()
+        if(usuarioInstance.id) {
+            usuarioInstance.perfis.clear()
+        }
 
         // adicionar perfis
         perfis.each { String perfil_id ->
