@@ -129,6 +129,7 @@ grails.plugin.springsecurity.authority.className = 'seguranca.Perfil'
 grails.plugin.springsecurity.securityConfigType = 'Annotation'
 
 grails.plugin.springsecurity.adh.useForward = false
+grails.plugin.springsecurity.logout.postOnly = false
 
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['ROLE_USER'],
