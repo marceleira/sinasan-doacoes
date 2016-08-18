@@ -39,5 +39,12 @@
 # nao sei o que eh
 /.slcache
 
+# projeto do idea
+/.idea
+/*.iml
+
+# nao sei o que eh
+/.slcache
+
 
 
