@@ -1,4 +1,4 @@
-<%@ page import="seguranca.Usuario" %>
+<%@ page import="br.gov.sus.sinasan.doacao.seguranca.Usuario" %>
 <!DOCTYPE html>
 <html>
 	<head>

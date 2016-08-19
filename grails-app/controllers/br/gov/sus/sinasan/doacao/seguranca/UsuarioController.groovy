@@ -1,4 +1,4 @@
-package seguranca
+package br.gov.sus.sinasan.doacao.seguranca
 
 import br.gov.sus.sinasan.doacao.exceptions.BusinessRuleException
 import grails.plugin.springsecurity.annotation.Secured

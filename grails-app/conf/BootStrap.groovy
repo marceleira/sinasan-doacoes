@@ -1,6 +1,6 @@
-import seguranca.Perfil
-import seguranca.Usuario
-import seguranca.UsuarioPerfil
+import br.gov.sus.sinasan.doacao.seguranca.Perfil
+import br.gov.sus.sinasan.doacao.seguranca.Usuario
+import br.gov.sus.sinasan.doacao.seguranca.UsuarioPerfil
 
 class BootStrap {
 

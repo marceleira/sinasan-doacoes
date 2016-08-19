@@ -1,4 +1,4 @@
-<%@ page import="seguranca.Usuario" %>
+<%@ page import="br.gov.sus.sinasan.doacao.seguranca.Usuario" %>
 
 
 
@@ -61,7 +61,7 @@
 		<g:message code="usuario.perfis.label" default="Perfis" />
 		
 	</label>
-	<g:select name="perfis" from="${seguranca.Perfil.list()}" multiple="multiple" optionKey="id" size="5" value="${usuarioInstance?.perfis*.id}" class="many-to-many"/>
+	<g:select name="perfis" from="${br.gov.sus.sinasan.doacao.seguranca.Perfil.list()}" multiple="multiple" optionKey="id" size="5" value="${usuarioInstance?.perfis*.id}" class="many-to-many"/>
 
 </div>
 

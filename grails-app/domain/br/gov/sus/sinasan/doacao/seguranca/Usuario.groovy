@@ -1,4 +1,4 @@
-package seguranca
+package br.gov.sus.sinasan.doacao.seguranca
 
 class Usuario {
 

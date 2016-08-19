@@ -1,5 +1,5 @@
 
-<%@ page import="seguranca.Perfil" %>
+<%@ page import="br.gov.sus.sinasan.doacao.seguranca.Perfil" %>
 <!DOCTYPE html>
 <html>
 	<head>

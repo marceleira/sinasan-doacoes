@@ -1,4 +1,4 @@
-package seguranca
+package br.gov.sus.sinasan.doacao.seguranca
 
 import org.apache.commons.lang.builder.HashCodeBuilder
 
