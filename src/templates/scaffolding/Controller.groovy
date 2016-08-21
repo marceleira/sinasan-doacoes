@@ -1,7 +1,9 @@
 <%=packageName ? "package ${packageName}" : ''%>
 
 import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 
+@Transactional(readOnly = true)
 @Secured(['ROLE_USER'])
 class ${className}Controller {
 
@@ -25,6 +27,7 @@ class ${className}Controller {
 
     }
 
+    @Transactional
     def salvar(${className} ${propertyName}) {
         if (${propertyName} == null) {
             notFound()
@@ -42,6 +45,7 @@ class ${className}Controller {
         redirect(action: 'exibir', id: ${propertyName}.id)
     }
 
+    @Transactional
     def excluir(${className} ${propertyName}) {
 
         if (${propertyName} == null) {
