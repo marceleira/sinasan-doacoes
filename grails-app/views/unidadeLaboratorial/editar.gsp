@@ -1,4 +1,5 @@
 <%@ page import="br.gov.sus.sinasan.doacao.UnidadeLaboratorial" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,7 +42,45 @@
 			<g:form url="[resource:unidadeLaboratorialInstance, action:'salvar']" method="POST" >
 				<g:hiddenField name="version" value="${unidadeLaboratorialInstance?.version}" />
 				<fieldset class="form">
-					<g:render template="form"/>
+					%{-- inicio do form --}%
+					
+					<div class="fieldcontain ${hasErrors(bean: unidadeLaboratorialInstance, field: 'nome', 'error')} required">
+						<label for="nome">
+							<g:message code="unidadeLaboratorial.nome.label" default="Nome" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:textField name="nome" required="" value="${unidadeLaboratorialInstance?.nome}"/>
+
+					</div>
+					
+					<div class="fieldcontain ${hasErrors(bean: unidadeLaboratorialInstance, field: 'endereco', 'error')} required">
+						<label for="endereco">
+							<g:message code="unidadeLaboratorial.endereco.label" default="Endereco" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:textField name="endereco" required="" value="${unidadeLaboratorialInstance?.endereco}"/>
+
+					</div>
+					
+					<div class="fieldcontain ${hasErrors(bean: unidadeLaboratorialInstance, field: 'laboratorio', 'error')} required">
+						<label for="laboratorio">
+							<g:message code="unidadeLaboratorial.laboratorio.label" default="Laboratorio" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:select id="laboratorio" name="laboratorio.id" from="${br.gov.sus.sinasan.doacao.Laboratorio.list()}" optionKey="id" required="" value="${unidadeLaboratorialInstance?.laboratorio?.id}" class="many-to-one"/>
+
+					</div>
+					
+					<div class="fieldcontain ${hasErrors(bean: unidadeLaboratorialInstance, field: 'municipio', 'error')} required">
+						<label for="municipio">
+							<g:message code="unidadeLaboratorial.municipio.label" default="Municipio" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:select id="municipio" name="municipio.id" from="${br.gov.sus.sinasan.doacao.Municipio.list()}" optionKey="id" required="" value="${unidadeLaboratorialInstance?.municipio?.id}" class="many-to-one"/>
+
+					</div>
+					
+					%{-- fim do form --}%
 				</fieldset>
 				<fieldset class="buttons">
                     <g:if test="${unidadeLaboratorialInstance?.id}">

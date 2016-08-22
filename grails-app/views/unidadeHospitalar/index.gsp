@@ -28,6 +28,8 @@
 					
 						<th><g:message code="unidadeHospitalar.hospital.label" default="Hospital" /></th>
 					
+						<th><g:message code="unidadeHospitalar.municipio.label" default="Municipio" /></th>
+					
 					</tr>
 
 				</thead>
@@ -40,6 +42,8 @@
 						<td>${fieldValue(bean: unidadeHospitalarInstance, field: "endereco")}</td>
 					
 						<td>${fieldValue(bean: unidadeHospitalarInstance, field: "hospital")}</td>
+					
+						<td>${fieldValue(bean: unidadeHospitalarInstance, field: "municipio")}</td>
 					
 					</tr>
 				</g:each>

@@ -75,17 +75,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${usuarioInstance?.perfis}">
-				<li class="fieldcontain">
-					<span id="perfis-label" class="property-label"><g:message code="usuario.perfis.label" default="Perfis" /></span>
-					
-						<g:each in="${usuarioInstance.perfis}" var="p">
-						<span class="property-value" aria-labelledby="perfis-label"><g:link controller="perfil" action="exibir" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:usuarioInstance, action:'excluir']" method="DELETE">
 				<fieldset class="buttons">

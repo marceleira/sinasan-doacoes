@@ -1,4 +1,5 @@
 <%@ page import="br.gov.sus.sinasan.doacao.UnidadeHospitalar" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,7 +42,45 @@
 			<g:form url="[resource:unidadeHospitalarInstance, action:'salvar']" method="POST" >
 				<g:hiddenField name="version" value="${unidadeHospitalarInstance?.version}" />
 				<fieldset class="form">
-					<g:render template="form"/>
+					%{-- inicio do form --}%
+					
+					<div class="fieldcontain ${hasErrors(bean: unidadeHospitalarInstance, field: 'nome', 'error')} required">
+						<label for="nome">
+							<g:message code="unidadeHospitalar.nome.label" default="Nome" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:textField name="nome" required="" value="${unidadeHospitalarInstance?.nome}"/>
+
+					</div>
+					
+					<div class="fieldcontain ${hasErrors(bean: unidadeHospitalarInstance, field: 'endereco', 'error')} required">
+						<label for="endereco">
+							<g:message code="unidadeHospitalar.endereco.label" default="Endereco" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:textField name="endereco" required="" value="${unidadeHospitalarInstance?.endereco}"/>
+
+					</div>
+					
+					<div class="fieldcontain ${hasErrors(bean: unidadeHospitalarInstance, field: 'hospital', 'error')} required">
+						<label for="hospital">
+							<g:message code="unidadeHospitalar.hospital.label" default="Hospital" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:select id="hospital" name="hospital.id" from="${br.gov.sus.sinasan.doacao.Hospital.list()}" optionKey="id" required="" value="${unidadeHospitalarInstance?.hospital?.id}" class="many-to-one"/>
+
+					</div>
+					
+					<div class="fieldcontain ${hasErrors(bean: unidadeHospitalarInstance, field: 'municipio', 'error')} required">
+						<label for="municipio">
+							<g:message code="unidadeHospitalar.municipio.label" default="Municipio" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:select id="municipio" name="municipio.id" from="${br.gov.sus.sinasan.doacao.Municipio.list()}" optionKey="id" required="" value="${unidadeHospitalarInstance?.municipio?.id}" class="many-to-one"/>
+
+					</div>
+					
+					%{-- fim do form --}%
 				</fieldset>
 				<fieldset class="buttons">
                     <g:if test="${unidadeHospitalarInstance?.id}">

@@ -48,6 +48,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${unidadeLaboratorialInstance?.municipio}">
+				<li class="fieldcontain">
+					<span id="municipio-label" class="property-label"><g:message code="unidadeLaboratorial.municipio.label" default="Municipio" /></span>
+					
+						<span class="property-value" aria-labelledby="municipio-label"><g:link controller="municipio" action="exibir" id="${unidadeLaboratorialInstance?.municipio?.id}">${unidadeLaboratorialInstance?.municipio?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:unidadeLaboratorialInstance, action:'excluir']" method="DELETE">
 				<fieldset class="buttons">

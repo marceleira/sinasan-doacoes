@@ -1,4 +1,5 @@
 <%@ page import="br.gov.sus.sinasan.doacao.seguranca.Perfil" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,7 +42,18 @@
 			<g:form url="[resource:perfilInstance, action:'salvar']" method="POST" >
 				<g:hiddenField name="version" value="${perfilInstance?.version}" />
 				<fieldset class="form">
-					<g:render template="form"/>
+					%{-- inicio do form --}%
+					
+					<div class="fieldcontain ${hasErrors(bean: perfilInstance, field: 'authority', 'error')} required">
+						<label for="authority">
+							<g:message code="perfil.authority.label" default="Authority" />
+							<span class="required-indicator">*</span>
+						</label>
+						<g:textField name="authority" required="" value="${perfilInstance?.authority}"/>
+
+					</div>
+					
+					%{-- fim do form --}%
 				</fieldset>
 				<fieldset class="buttons">
                     <g:if test="${perfilInstance?.id}">

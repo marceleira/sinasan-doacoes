@@ -28,6 +28,8 @@
 					
 						<th><g:message code="unidadeLaboratorial.laboratorio.label" default="Laboratorio" /></th>
 					
+						<th><g:message code="unidadeLaboratorial.municipio.label" default="Municipio" /></th>
+					
 					</tr>
 
 				</thead>
@@ -40,6 +42,8 @@
 						<td>${fieldValue(bean: unidadeLaboratorialInstance, field: "endereco")}</td>
 					
 						<td>${fieldValue(bean: unidadeLaboratorialInstance, field: "laboratorio")}</td>
+					
+						<td>${fieldValue(bean: unidadeLaboratorialInstance, field: "municipio")}</td>
 					
 					</tr>
 				</g:each>
