@@ -26,9 +26,15 @@ class Usuario {
 		perfis joinTable: [name: "usuario_perfil", key: 'usuario_id']
 	}
 
+    @Override
 	Set<Perfil> getAuthorities() {
 		UsuarioPerfil.findAllByUsuario(this).collect { it.perfil }
 	}
+
+    @Override
+    Set<Perfil> getPerfis() {
+        return this.getAuthorities()
+    }
 
 	def beforeInsert() {
 		encodePassword()
