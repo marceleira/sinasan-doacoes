@@ -12,4 +12,8 @@ class UnidadeHospitalar {
         nome(blank: false, nullable: false)
         endereco(blank: false, nullable: false)
     }
+
+    String toString() {
+        nome
+    }
 }
