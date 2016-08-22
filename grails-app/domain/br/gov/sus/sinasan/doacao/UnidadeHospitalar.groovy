@@ -3,6 +3,7 @@ package br.gov.sus.sinasan.doacao
 class UnidadeHospitalar {
 
     String nome
+    Municipio municipio
     String endereco
 
     static belongsTo = [hospital: Hospital]
