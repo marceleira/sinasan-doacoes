@@ -1,8 +1,8 @@
 package br.gov.sus.sinasan.doacao
 
-class BolsaSangue {
+class ExameLaboratorial {
 
-    static hasMany = [exames: ExameLaboratorial]
+    static belongsTo = [bolsa: BolsaSangue]
 
     static constraints = {
     }
