@@ -15,14 +15,13 @@ class BootStrap {
         def usuario = Usuario.findByUsername('master')
 
         if(!usuario) {
-            usuario = new Usuario(username: 'master', password: '123');
-            usuario.save();
 
             def perfil = new Perfil(authority: 'ROLE_USER');
-            perfil.save();
+            perfil.save(flush: true);
 
-            def usuarioPerfil = new UsuarioPerfil(usuario: usuario, perfil: perfil);
-            usuarioPerfil.save();
+            usuario = new Usuario(username: 'master', password: '123');
+            usuario.addToPerfis(perfil)
+            usuario.save(flush: true);
         }
 
         carregaMunicipios()

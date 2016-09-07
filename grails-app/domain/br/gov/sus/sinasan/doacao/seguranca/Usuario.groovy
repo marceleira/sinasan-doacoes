@@ -31,11 +31,6 @@ class Usuario {
 		UsuarioPerfil.findAllByUsuario(this).collect { it.perfil }
 	}
 
-    @Override
-    Set<Perfil> getPerfis() {
-        return this.getAuthorities()
-    }
-
 	def beforeInsert() {
 		encodePassword()
 	}
