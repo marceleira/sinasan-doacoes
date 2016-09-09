@@ -3,7 +3,7 @@ package br.gov.sus.sinasan.doacao
 class Doacao {
 
     // dados do agendamento
-    Laboratorio laboratorio
+    UnidadeLaboratorial unidadeLaboratorial
     Date dataHoraAgendamento
 
     static belongsTo = [doador: Doador]
