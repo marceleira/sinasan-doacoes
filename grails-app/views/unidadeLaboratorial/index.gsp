@@ -22,10 +22,10 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="codigo" title="${message(code: 'unidadeLaboratorial.codigo.label', default: 'Codigo')}" />
+
 						<g:sortableColumn property="nome" title="${message(code: 'unidadeLaboratorial.nome.label', default: 'Nome')}" />
-					
-						<g:sortableColumn property="endereco" title="${message(code: 'unidadeLaboratorial.endereco.label', default: 'Endereco')}" />
-					
+
 						<th><g:message code="unidadeLaboratorial.laboratorio.label" default="Laboratorio" /></th>
 					
 						<th><g:message code="unidadeLaboratorial.municipio.label" default="Municipio" /></th>
@@ -36,11 +36,11 @@
 				<tbody>
 				<g:each in="${unidadeLaboratorialInstanceList}" status="i" var="unidadeLaboratorialInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
+
+                        <td>${fieldValue(bean: unidadeLaboratorialInstance, field: "codigo")}</td>
+
 						<td><g:link action="exibir" id="${unidadeLaboratorialInstance.id}">${fieldValue(bean: unidadeLaboratorialInstance, field: "nome")}</g:link></td>
-					
-						<td>${fieldValue(bean: unidadeLaboratorialInstance, field: "endereco")}</td>
-					
+
 						<td>${fieldValue(bean: unidadeLaboratorialInstance, field: "laboratorio")}</td>
 					
 						<td>${fieldValue(bean: unidadeLaboratorialInstance, field: "municipio")}</td>

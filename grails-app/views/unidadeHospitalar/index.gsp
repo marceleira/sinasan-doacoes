@@ -21,11 +21,11 @@
 			<table>
 			<thead>
 					<tr>
-					
+
+                        <g:sortableColumn property="codigo" title="${message(code: 'unidadeHospitalar.codigo.label', default: 'Código')}" />
+
 						<g:sortableColumn property="nome" title="${message(code: 'unidadeHospitalar.nome.label', default: 'Nome')}" />
-					
-						<g:sortableColumn property="endereco" title="${message(code: 'unidadeHospitalar.endereco.label', default: 'Endereco')}" />
-					
+
 						<th><g:message code="unidadeHospitalar.hospital.label" default="Hospital" /></th>
 					
 						<th><g:message code="unidadeHospitalar.municipio.label" default="Municipio" /></th>
@@ -36,13 +36,13 @@
 				<tbody>
 				<g:each in="${unidadeHospitalarInstanceList}" status="i" var="unidadeHospitalarInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="exibir" id="${unidadeHospitalarInstance.id}">${fieldValue(bean: unidadeHospitalarInstance, field: "nome")}</g:link></td>
-					
-						<td>${fieldValue(bean: unidadeHospitalarInstance, field: "endereco")}</td>
-					
+
+                        <td>${fieldValue(bean: unidadeHospitalarInstance, field: "codigo")}</td>
+
+                        <td><g:link action="exibir" id="${unidadeHospitalarInstance.id}">${fieldValue(bean: unidadeHospitalarInstance, field: "nome")}</g:link></td>
+
 						<td>${fieldValue(bean: unidadeHospitalarInstance, field: "hospital")}</td>
-					
+
 						<td>${fieldValue(bean: unidadeHospitalarInstance, field: "municipio")}</td>
 					
 					</tr>

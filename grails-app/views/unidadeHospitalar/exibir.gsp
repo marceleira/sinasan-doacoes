@@ -20,8 +20,17 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list unidadeHospitalar">
-			
-				<g:if test="${unidadeHospitalarInstance?.nome}">
+
+                <g:if test="${unidadeHospitalarInstance?.codigo}">
+                    <li class="fieldcontain">
+                        <span id="codigo-label" class="property-label"><g:message code="unidadeHospitalar.codigo.label" default="Código" /></span>
+
+                        <span class="property-value" aria-labelledby="codigo-label"><g:fieldValue bean="${unidadeHospitalarInstance}" field="codigo"/></span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${unidadeHospitalarInstance?.nome}">
 				<li class="fieldcontain">
 					<span id="nome-label" class="property-label"><g:message code="unidadeHospitalar.nome.label" default="Nome" /></span>
 					
