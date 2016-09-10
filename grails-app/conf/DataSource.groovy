@@ -2,8 +2,6 @@ dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
     dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
-    username = "sinasan"
-    password = "app"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -17,6 +15,8 @@ hibernate {
 environments {
     development {
         dataSource {
+            username = "sinasan"
+            password = "app"
             dbCreate = "update"
 //            dbCreate = "none"
 //            dbCreate = "create-drop"
@@ -25,12 +25,16 @@ environments {
     }
     test {
         dataSource {
+            username = "sinasan"
+            password = "app"
             dbCreate = "none"
             url = "jdbc:mysql://localhost:3306/sinasan?useUnicode=true&autoReconnect=true"
         }
     }
     production {
         dataSource {
+            username = "sinasan"
+            password = "app"
             dbCreate = "none"
             url = "jdbc:mysql://localhost:3306/sinasan?useUnicode=true&autoReconnect=true"
         }
