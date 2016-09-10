@@ -28,9 +28,15 @@ class BootStrap {
             usuario.save(flush: true);
         }
 
-        carregaMunicipios()
-        carregaLaboratorios()
-        carregaHospitais()
+        if(Estado.count() == 0) {
+            carregaMunicipios()
+        }
+        if(Laboratorio.count() == 0) {
+            carregaLaboratorios()
+        }
+        if(Hospital.count() == 0) {
+            carregaHospitais()
+        }
     }
 
     def destroy = {
@@ -39,22 +45,16 @@ class BootStrap {
     def carregaMunicipios = {
 
         def dataSource = grailsApplication.mainContext.getBean('dataSource')
-        Estado estado = Estado.findByUf("MG")
+        def sql = new Sql(dataSource)
+        def sqltxt
 
-        if(!estado) {
-            def sql = new Sql(dataSource)
-            def sqltxt = grailsApplication.parentContext.getResource("classpath:/resources/sql/estados.sql").inputStream.text
-            sql.executeInsert(sqltxt);
-        }
+        // estados
+        sqltxt = grailsApplication.parentContext.getResource("classpath:/resources/sql/estados.sql").inputStream.text
+        sql.executeInsert(sqltxt);
 
-        Municipio municipio = Municipio.findByEstado(estado)
-        if(!municipio) {
-            def sql = new Sql(dataSource)
-            def sqltxt = grailsApplication.parentContext.getResource("classpath:/resources/sql/municipios.sql").inputStream.text
-            sql.executeInsert(sqltxt);
-        }
-
-
+        // municipios
+        sqltxt = grailsApplication.parentContext.getResource("classpath:/resources/sql/municipios.sql").inputStream.text
+        sql.executeInsert(sqltxt);
     }
 
     def carregaLaboratorios = {
@@ -120,22 +120,18 @@ class BootStrap {
         hospital.addToUnidades(unidadeHospitalar)
 
         // hosp
-        hospital = new Hospital(nome: "Lifecenter", email: "sinasan@hospitalbelohorizonte.com.br", telefone: "(31) 3449-7000")
+        hospital = new Hospital(nome: "Lifecenter", email: "sinasan@lifecenter.com.br", telefone: "(31) 3449-7000")
         hospital.save(flush: true)
 
         unidadeHospitalar = new UnidadeHospitalar(nome: "São Lucas", endereco: "Av. do Contorno, 4747 - São Lucas, Belo Horizonte - MG", municipio: municipioBH)
         hospital.addToUnidades(unidadeHospitalar)
 
+        // hosp
+        hospital = new Hospital(nome: "FHEMIG", email: "sinasan@fhemig.mg.gov.br", telefone: "(31) 3239-9200")
+        hospital.save(flush: true)
 
-
-//      Lifecenter
-//        Av. do Contorno, 4747 - São Lucas, Belo Horizonte - MG
-
-
-//        fhemig
-//        João XXIII
-//        Avenida Professor Alfredo Balena, 400 - Santa Efigênia, Belo Horizonte - MG
-
+        unidadeHospitalar = new UnidadeHospitalar(nome: "João XXIII", endereco: "Av. Professor Alfredo Balena, 400 - Santa Efigênia, Belo Horizonte - MG", municipio: municipioBH)
+        hospital.addToUnidades(unidadeHospitalar)
     }
 
 }
