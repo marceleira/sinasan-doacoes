@@ -8,6 +8,10 @@ class Doacao {
 
     static belongsTo = [doador: Doador]
 
+    static hasMany = [bolsasSangue: BolsaSangue]
+
     static constraints = {
+        unidadeLaboratorial(nullable: false)
+        dataHoraAgendamento(nullable: false)
     }
 }
