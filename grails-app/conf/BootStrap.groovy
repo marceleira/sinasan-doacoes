@@ -1,14 +1,14 @@
 import br.gov.sus.sinasan.doacao.Estado
+import br.gov.sus.sinasan.doacao.GrupoSanguineo
 import br.gov.sus.sinasan.doacao.Hospital
 import br.gov.sus.sinasan.doacao.Laboratorio
 import br.gov.sus.sinasan.doacao.Municipio
+import br.gov.sus.sinasan.doacao.Sexo
 import br.gov.sus.sinasan.doacao.UnidadeHospitalar
 import br.gov.sus.sinasan.doacao.UnidadeLaboratorial
 import br.gov.sus.sinasan.doacao.seguranca.Perfil
 import br.gov.sus.sinasan.doacao.seguranca.Usuario
-import br.gov.sus.sinasan.doacao.seguranca.UsuarioPerfil
 import groovy.sql.Sql
-import org.codehaus.groovy.grails.web.mapping.LinkGenerator
 
 class BootStrap {
 
@@ -36,6 +36,12 @@ class BootStrap {
         }
         if(Hospital.count() == 0) {
             carregaHospitais()
+        }
+        if(Sexo.count() == 0) {
+            carregaSexos()
+        }
+        if(GrupoSanguineo.count() == 0) {
+            carregaGrupoSanguineo()
         }
     }
 
@@ -132,6 +138,22 @@ class BootStrap {
 
         unidadeHospitalar = new UnidadeHospitalar(nome: "João XXIII", endereco: "Av. Professor Alfredo Balena, 400 - Santa Efigênia, Belo Horizonte - MG", municipio: municipioBH)
         hospital.addToUnidades(unidadeHospitalar)
+    }
+
+    def carregaSexos = {
+        new Sexo(codigo: "M", nome: "Masculino").save()
+        new Sexo(codigo: "F", nome: "Feminino").save()
+    }
+
+    def carregaGrupoSanguineo = {
+        new GrupoSanguineo(codigo: "O+").save()
+        new GrupoSanguineo(codigo: "A+").save()
+        new GrupoSanguineo(codigo: "B+").save()
+        new GrupoSanguineo(codigo: "AB+").save()
+        new GrupoSanguineo(codigo: "O-").save()
+        new GrupoSanguineo(codigo: "A-").save()
+        new GrupoSanguineo(codigo: "B-").save()
+        new GrupoSanguineo(codigo: "AB-").save()
     }
 
 }
