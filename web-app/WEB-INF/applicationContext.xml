@@ -31,4 +31,5 @@
 	</bean>
 
 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean" />
+	<bean id="doacaoService" class="br.gov.sus.sinasan.doacao.DoacaoService" />
 </beans>
