@@ -92,9 +92,18 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+        jobs.remessas.pendentes = "E:\\TCC\\PENDENTES\\"
+        jobs.remessas.processadas = "E:\\TCC\\PROCESSADAS\\"
+    }
+    test {
+        grails.logging.jul.usebridge = true
+        jobs.remessas.pendentes = "E:\\TCC\\PENDENTES\\"
+        jobs.remessas.processadas = "E:\\TCC\\PROCESSADAS\\"
     }
     production {
         grails.logging.jul.usebridge = false
+        jobs.remessas.pendentes = "E:\\TCC\\PENDENTES\\"
+        jobs.remessas.processadas = "E:\\TCC\\PROCESSADAS\\"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
