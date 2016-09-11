@@ -1,10 +1,13 @@
 package br.gov.sus.sinasan.doacao
 
+import org.grails.databinding.BindingFormat
+
 class Doador {
 
     String cpf
     String nomeCompleto
     Sexo sexo
+    @BindingFormat('yyyyMMdd')
     Date dataNascimento
     String endereco
     String telefone
