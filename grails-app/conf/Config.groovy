@@ -97,13 +97,13 @@ environments {
     }
     test {
         grails.logging.jul.usebridge = true
-        jobs.remessas.pendentes = "E:\\TCC\\PENDENTES\\"
-        jobs.remessas.processadas = "E:\\TCC\\PROCESSADAS\\"
+        jobs.remessas.pendentes = "/opt/remessas/PENDENTES"
+        jobs.remessas.processadas = "/opt/remessas/PROCESSADAS"
     }
     production {
         grails.logging.jul.usebridge = false
-        jobs.remessas.pendentes = "E:\\TCC\\PENDENTES\\"
-        jobs.remessas.processadas = "E:\\TCC\\PROCESSADAS\\"
+        jobs.remessas.pendentes = "/opt/remessas/PENDENTES"
+        jobs.remessas.processadas = "/opt/remessas/PROCESSADAS"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
