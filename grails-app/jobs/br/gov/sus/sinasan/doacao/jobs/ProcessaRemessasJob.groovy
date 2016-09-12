@@ -10,8 +10,8 @@ class ProcessaRemessasJob {
 
     static triggers = {
 //        cron name: 'processamentoRemessas', cronExpression: "0 0 6 * * ?"
-//        simple name:'processamentoRemessas', startDelay:1000, repeatInterval: 60000, repeatCount: -1 // executa a cada 60 segundos
-        simple name:'processamentoRemessas', startDelay:1000, repeatInterval: 60000, repeatCount: 1 // executa a cada 60 segundos
+        simple name:'processamentoRemessas', startDelay:1000, repeatInterval: 60000, repeatCount: -1 // executa a cada 60 segundos
+//        simple name:'processamentoRemessas', startDelay:1000, repeatInterval: 60000, repeatCount: 1 // executa a cada 60 segundos
     }
 
     def execute() {
