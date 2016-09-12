@@ -27,7 +27,7 @@ environments {
         dataSource {
             username = "sinasan"
             password = "app"
-            dbCreate = "none"
+            dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/sinasan?useUnicode=true&autoReconnect=true"
         }
     }
@@ -35,7 +35,7 @@ environments {
         dataSource {
             username = "sinasan"
             password = "app"
-            dbCreate = "none"
+            dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/sinasan?useUnicode=true&autoReconnect=true"
         }
     }
