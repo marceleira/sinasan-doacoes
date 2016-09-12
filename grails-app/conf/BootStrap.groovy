@@ -75,40 +75,40 @@ class BootStrap {
         laboratorio.save(flush: true)
 
         unidade = new UnidadeLaboratorial(laboratorio: laboratorio, nome: "Cidade Nova", endereco: "Av. Cristiano Machado, 1837 - Cidade Nova, Belo Horizonte - MG", municipio: municipioBH)
-        laboratorio.addToUnidades(unidade)
+        unidade.save(flush: true)
 
         unidade = new UnidadeLaboratorial(laboratorio: laboratorio, nome: "Buritis", endereco: "R. José Rodrigues Pereira, 385 - Buritis, Belo Horizonte - MG", municipio: municipioBH)
-        laboratorio.addToUnidades(unidade)
+        unidade.save(flush: true)
 
         // lab
         laboratorio = new Laboratorio(nome: "Hermes Pardini", email: "sinasan@hermespardini.com.br", telefone: "(31) 3212-0001")
         laboratorio.save(flush: true)
 
         unidade = new UnidadeLaboratorial(laboratorio: laboratorio, nome: "Pampulha", endereco: "Av. Pres. Antônio Carlos, 7781 - São Luiz, Belo Horizonte - MG", municipio: municipioBH)
-        laboratorio.addToUnidades(unidade)
+        unidade.save(flush: true)
 
         unidade = new UnidadeLaboratorial(laboratorio: laboratorio, nome: "Cidade Nova", endereco: "Av. Cristiano Machado, 597 - Cidade Nova, Belo Horizonte - MG", municipio: municipioBH)
-        laboratorio.addToUnidades(unidade)
+        unidade.save(flush: true)
 
         unidade = new UnidadeLaboratorial(laboratorio: laboratorio, nome: "Guarani", endereco: "Av. Waldomiro Lobo, 620 - Guarani, Belo Horizonte - MG", municipio: municipioBH)
-        laboratorio.addToUnidades(unidade)
+        unidade.save(flush: true)
 
         // lab
         laboratorio = new Laboratorio(nome: "São Marcos", email: "sinasan@saomarcos.com.br", telefone: "(31) 3232-8000")
         laboratorio.save(flush: true)
 
         unidade = new UnidadeLaboratorial(laboratorio: laboratorio, nome: "Barreiro", endereco: "R. Júlio de Mesquita, 242 - Marilândia (Jatobá), Belo Horizonte - MG", municipio: municipioBH)
-        laboratorio.addToUnidades(unidade)
+        unidade.save(flush: true)
 
         unidade = new UnidadeLaboratorial(laboratorio: laboratorio, nome: "Ibirité", endereco: "Av. Otacílio Negrão de Lima, 55 - São Geraldo, Ibirité - MG", municipio: municipioIbirite)
-        laboratorio.addToUnidades(unidade)
+        unidade.save(flush: true)
 
         // lab
         laboratorio = new Laboratorio(nome: "São Lucas", email: "sinasan@saolucas.com.br", telefone: "(31) 3232-9000")
         laboratorio.save(flush: true)
 
         unidade = new UnidadeLaboratorial(laboratorio: laboratorio, nome: "Vespasiano", endereco: "Rua Alberto Lázaro, 28, Vespasiano - MG", municipio: municipioVespasiano)
-        laboratorio.addToUnidades(unidade)
+        unidade.save(flush: true)
     }
 
     def carregaHospitais = {
@@ -122,22 +122,22 @@ class BootStrap {
         hospital = new Hospital(nome: "Hospital Belo Horizonte", email: "sinasan@hospitalbelohorizonte.com.br", telefone: "(31) 3449-7000")
         hospital.save(flush: true)
 
-        unidadeHospitalar = new UnidadeHospitalar(nome: "Cachoeirinha", endereco: "Av. Pres. Antônio Carlos, 1694 - Cachoeirinha, Belo Horizonte - MG", municipio: municipioBH)
-        hospital.addToUnidades(unidadeHospitalar)
+        unidadeHospitalar = new UnidadeHospitalar(hospital: hospital, nome: "Cachoeirinha", endereco: "Av. Pres. Antônio Carlos, 1694 - Cachoeirinha, Belo Horizonte - MG", municipio: municipioBH)
+        unidadeHospitalar.save(flush: true)
 
         // hosp
         hospital = new Hospital(nome: "Lifecenter", email: "sinasan@lifecenter.com.br", telefone: "(31) 3449-7000")
         hospital.save(flush: true)
 
-        unidadeHospitalar = new UnidadeHospitalar(nome: "São Lucas", endereco: "Av. do Contorno, 4747 - São Lucas, Belo Horizonte - MG", municipio: municipioBH)
-        hospital.addToUnidades(unidadeHospitalar)
+        unidadeHospitalar = new UnidadeHospitalar(hospital: hospital, nome: "São Lucas", endereco: "Av. do Contorno, 4747 - São Lucas, Belo Horizonte - MG", municipio: municipioBH)
+        unidadeHospitalar.save(flush: true)
 
         // hosp
         hospital = new Hospital(nome: "FHEMIG", email: "sinasan@fhemig.mg.gov.br", telefone: "(31) 3239-9200")
         hospital.save(flush: true)
 
-        unidadeHospitalar = new UnidadeHospitalar(nome: "João XXIII", endereco: "Av. Professor Alfredo Balena, 400 - Santa Efigênia, Belo Horizonte - MG", municipio: municipioBH)
-        hospital.addToUnidades(unidadeHospitalar)
+        unidadeHospitalar = new UnidadeHospitalar(hospital: hospital, nome: "João XXIII", endereco: "Av. Professor Alfredo Balena, 400 - Santa Efigênia, Belo Horizonte - MG", municipio: municipioBH)
+        unidadeHospitalar.save(flush: true)
     }
 
     def carregaSexos = {
