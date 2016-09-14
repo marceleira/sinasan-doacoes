@@ -140,6 +140,14 @@ grails.plugin.springsecurity.securityConfigType = 'Annotation'
 grails.plugin.springsecurity.adh.useForward = false
 grails.plugin.springsecurity.logout.postOnly = false
 
+// usar autenticação básica apenas para o controller dos webservices
+grails.plugin.springsecurity.useBasicAuth = true
+grails.plugin.springsecurity.basic.realmName = "Webservice sinasan"
+grails.plugin.springsecurity.filterChain.chainMap = [
+        '/ws/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
+        '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
+]
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['ROLE_USER'],
 	'/index':                         ['ROLE_USER'],
