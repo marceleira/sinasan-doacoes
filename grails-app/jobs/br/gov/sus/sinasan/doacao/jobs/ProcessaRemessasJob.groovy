@@ -25,6 +25,7 @@ class ProcessaRemessasJob {
         Pattern patternFileDoacoes = Pattern.compile("LB\\d+");
         Matcher matcher
         Integer codigoLaboratorio
+        Integer contArquivos = 0; // contador de arquivos processados
 
         try {
             for(File arquivo in caminhoRemessas.listFiles() ) {
@@ -43,6 +44,7 @@ class ProcessaRemessasJob {
                     doacaoService.processaFileDoacoes(codigoLaboratorio, arquivo)
                     // move o arquivo para o caminho de arquivos processados
                     moveArquivoProcessado(arquivo)
+                    contArquivos++
                 }
             }
 
@@ -51,6 +53,9 @@ class ProcessaRemessasJob {
             println("Mensagem: "+e.message)
         }
 
+        if(contArquivos) {
+            println("$contArquivos arquivo(s) processado(s) com sucesso!");
+        }
         println("PROCESSAMENTO FINALIZADO COM SUCESSO!");
 
     }

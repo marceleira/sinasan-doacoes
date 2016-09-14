@@ -46,18 +46,20 @@ class DoacaoService {
             dados.bolsa.codigo             = linha.substring(340, 372).trim()
             dados.bolsa.grupoSanguineo     = GrupoSanguineo.findByCodigo(linha.substring(372, 375).trim())
 
-            Doador doador = Doador.findByCpf(dados.doador.cpf) ?: new Doador()
-            doador.properties = dados.doador
-            doador.save(flush: true, failOnError: true);
-
-            Doacao doacao = new Doacao(dados.doacao)
-            doacao.doador = doador
-            doacao.save(flush: true, failOnError: true)
-
-            BolsaSangue bolsaSangue = new BolsaSangue(dados.bolsa)
-            bolsaSangue.doacao = doacao
-            bolsaSangue.save(flush: true, failOnError: true)
+            salvarDoacao(dados.doador as Doador, dados.doacao as Doacao, dados.bolsa as BolsaSangue)
         }
 
+    }
+
+    def salvarDoacao(Doador doador, Doacao doacao, BolsaSangue bolsaSangue) throws BusinessRuleException {
+
+        doador = Doador.findByCpf(doador.cpf) ?: doador
+        doador.save(flush: true, failOnError: true);
+
+        doacao.doador = doador
+        doacao.save(flush: true, failOnError: true)
+
+        bolsaSangue.doacao = doacao
+        bolsaSangue.save(flush: true, failOnError: true)
     }
 }
