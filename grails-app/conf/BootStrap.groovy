@@ -29,6 +29,9 @@ class BootStrap {
         }
 
         if(Estado.count() == 0) {
+            carregaEstados()
+        }
+        if(Municipio.count() == 0) {
             carregaMunicipios()
         }
         if(Laboratorio.count() == 0) {
@@ -54,12 +57,19 @@ class BootStrap {
         def sql = new Sql(dataSource)
         def sqltxt
 
-        // estados
-        sqltxt = grailsApplication.parentContext.getResource("classpath:/resources/sql/estados.sql").inputStream.text
-        sql.executeInsert(sqltxt);
-
         // municipios
         sqltxt = grailsApplication.parentContext.getResource("classpath:/resources/sql/municipios.sql").inputStream.text
+        sql.executeInsert(sqltxt);
+    }
+
+    def carregaEstados = {
+
+        def dataSource = grailsApplication.mainContext.getBean('dataSource')
+        def sql = new Sql(dataSource)
+        def sqltxt
+
+        // estados
+        sqltxt = grailsApplication.parentContext.getResource("classpath:/resources/sql/estados.sql").inputStream.text
         sql.executeInsert(sqltxt);
     }
 
