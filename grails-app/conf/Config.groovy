@@ -97,13 +97,13 @@ environments {
     }
     test {
         grails.logging.jul.usebridge = true
-        jobs.remessas.pendentes = "/opt/remessas/PENDENTES"
-        jobs.remessas.processadas = "/opt/remessas/PROCESSADAS"
+        jobs.remessas.pendentes = "/home/laboratoriox/PENDENTES/"
+        jobs.remessas.processadas = "/home/laboratoriox/PROCESSADAS/"
     }
     production {
         grails.logging.jul.usebridge = false
-        jobs.remessas.pendentes = "/opt/remessas/PENDENTES"
-        jobs.remessas.processadas = "/opt/remessas/PROCESSADAS"
+        jobs.remessas.pendentes = "/home/laboratoriox/PENDENTES/"
+        jobs.remessas.processadas = "/home/laboratoriox/PROCESSADAS/"
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
