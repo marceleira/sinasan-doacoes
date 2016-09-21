@@ -49,14 +49,13 @@ class ProcessaRemessasJob {
             }
 
         } catch (IOException e) {
-            println("Erro na leitura do arquivo")
-            println("Mensagem: "+e.message)
+            log.error("Erro na leitura do arquivo: $e.message")
         }
 
         if(contArquivos) {
-            println("$contArquivos arquivo(s) processado(s) com sucesso!");
+            log.info("$contArquivos arquivo(s) processado(s) com sucesso!");
         }
-        println("PROCESSAMENTO FINALIZADO COM SUCESSO!");
+        log.info("PROCESSAMENTO FINALIZADO COM SUCESSO!");
 
     }
 
