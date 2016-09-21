@@ -20,19 +20,12 @@ class DoacaoService {
         def dados = [:]
         for(def i = 0; linha = br.readLine() ; i++) {
 
-            if(i == 0) {
-                linha = linha.substring(0, 375)
-            } else {
-                linha = linha.substring(0, 374)
-                linha = " "+linha;
-            }
-
             dados.doador = [:]
             dados.doador.nomeCompleto       = linha.substring(0, 64).trim()
-            dados.doador.sexo               = Sexo.findByCodigo(linha.substring(65, 66).trim().toUpperCase())
-            dados.doador.cpf                = linha.substring(66, 77).trim()
-            dados.doador.dataNascimento     = linha.substring(77, 85).trim()
-            dados.doador.endereco           = linha.substring(85, 184).trim()
+            dados.doador.sexo               = Sexo.findByCodigo(linha.substring(64, 65).trim().toUpperCase())
+            dados.doador.cpf                = linha.substring(65, 76).trim()
+            dados.doador.dataNascimento     = linha.substring(76, 84).trim()
+            dados.doador.endereco           = linha.substring(84, 184).trim()
             dados.doador.telefone           = linha.substring(184, 200).trim()
             dados.doador.email              = linha.substring(200, 264).trim()
             dados.doador.naturalidade       = linha.substring(264, 296).trim()
