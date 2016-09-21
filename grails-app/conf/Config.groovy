@@ -110,17 +110,21 @@ environments {
 
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
 
-    appenders {
-        file name:'file', file:'/var/log/tomcat/sinasan-doacoes.log'
-    }
-    root {
-        info 'stdout', 'file'
+    environments {
+        development {
+//            root {
+//                info()
+//            }
+        }
+        production {
+            appenders {
+                file name:'file', file:'/var/log/tomcat/sinasan-doacoes.log'
+            }
+            root {
+                info 'stdout', 'file'
+            }
+        }
     }
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
@@ -130,10 +134,14 @@ log4j = {
            'org.codehaus.groovy.grails.web.mapping',        // URL mapping
            'org.codehaus.groovy.grails.commons',            // core / classloading
            'org.codehaus.groovy.grails.plugins',            // plugins
+           'org.codehaus.groovy.grails.scaffolding',            // plugins
            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
            'org.springframework',
            'org.hibernate',
-           'net.sf.ehcache.hibernate'
+           'net.sf.ehcache',
+           'grails.plugin',
+           'org.quartz'
+
 }
 
 
