@@ -92,8 +92,8 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        jobs.remessas.pendentes = "E:\\TCC\\PENDENTES\\"
-        jobs.remessas.processadas = "E:\\TCC\\PROCESSADAS\\"
+        jobs.remessas.pendentes = "/home/marcelo/REMESSAS/PENDENTES/"
+        jobs.remessas.processadas = "/home/marcelo/REMESSAS/PROCESSADAS/"
     }
     test {
         grails.logging.jul.usebridge = true

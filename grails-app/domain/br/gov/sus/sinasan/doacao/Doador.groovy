@@ -29,4 +29,8 @@ class Doador {
         naturalidade(nullable: false, blank: false, maxSize: 32)
         nacionalidade(nullable: false, blank: false, maxSize: 32)
     }
+
+    String toString() {
+        nomeCompleto
+    }
 }

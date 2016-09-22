@@ -13,8 +13,19 @@ class Doacao {
 
     static hasMany = [bolsasSangue: BolsaSangue]
 
+    static transients = ['dataHoraAgendamentoString']
+
     static constraints = {
         unidadeLaboratorial(nullable: false)
         dataHoraAgendamento(nullable: false)
     }
+
+    String getDataHoraAgendamentoString() {
+        this.dataHoraAgendamento.format("dd/MM/yyyy - HH:mm:ss")
+    }
+
+    String toString() {
+        this.unidadeLaboratorial.toString() + ' - ' + this.dataHoraAgendamentoString
+    }
+
 }

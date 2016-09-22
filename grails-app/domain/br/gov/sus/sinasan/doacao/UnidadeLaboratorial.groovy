@@ -26,6 +26,6 @@ class UnidadeLaboratorial {
     }
 
     String toString() {
-        Laboratorio.get(this.laboratorioId).nome + ' - ' + this.nome
+        this.nome
     }
 }
