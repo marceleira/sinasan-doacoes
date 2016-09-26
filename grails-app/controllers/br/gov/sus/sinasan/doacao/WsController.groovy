@@ -13,7 +13,18 @@ class WsController {
         String codigoBolsa = params?.id
         def dados = [:]
 
+        dados.erro = 0
+        dados.msg_erro = ''
+
         BolsaSangue bolsaSangue = BolsaSangue.findByCodigo(codigoBolsa);
+
+        // finaliza com erro
+        if(!bolsaSangue) {
+            dados.erro = 1
+            dados.msg_erro = message(code: 'default.not.found.message', args: [message(code: 'bolsaSangue.label'), params.id])
+            render dados as JSON
+            return
+        }
 
         dados.codigo = bolsaSangue.codigo
         dados.grupoSanguineo = bolsaSangue.grupoSanguineo.toString()
