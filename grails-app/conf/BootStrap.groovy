@@ -4,6 +4,7 @@ import br.gov.sus.sinasan.doacao.Hospital
 import br.gov.sus.sinasan.doacao.Laboratorio
 import br.gov.sus.sinasan.doacao.Municipio
 import br.gov.sus.sinasan.doacao.Sexo
+import br.gov.sus.sinasan.doacao.SituacaoBolsa
 import br.gov.sus.sinasan.doacao.UnidadeHospitalar
 import br.gov.sus.sinasan.doacao.UnidadeLaboratorial
 import br.gov.sus.sinasan.doacao.seguranca.Perfil
@@ -45,6 +46,9 @@ class BootStrap {
         }
         if(GrupoSanguineo.count() == 0) {
             carregaGrupoSanguineo()
+        }
+        if(SituacaoBolsa.count() == 0) {
+            carregaSituacao()
         }
     }
 
@@ -176,6 +180,15 @@ class BootStrap {
         new GrupoSanguineo(codigo: "A-").save()
         new GrupoSanguineo(codigo: "B-").save()
         new GrupoSanguineo(codigo: "AB-").save()
+    }
+
+    def carregaSituacao = {
+        new SituacaoBolsa(nome: "AGUARDANDO EXAMES").save()
+        new SituacaoBolsa(nome: "REALIZANDO EXAMES").save()
+        new SituacaoBolsa(nome: "EM ESTOQUE").save()
+        new SituacaoBolsa(nome: "ENCAMINHADA AO HOSPITAL").save()
+        new SituacaoBolsa(nome: "RECEBIDA PELO HOSPITAL").save()
+        new SituacaoBolsa(nome: "DESCARTE").save()
     }
 
 }

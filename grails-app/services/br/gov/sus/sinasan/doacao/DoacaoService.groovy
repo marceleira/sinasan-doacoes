@@ -53,6 +53,7 @@ class DoacaoService {
         doacao.save(flush: true, failOnError: true)
 
         bolsaSangue.doacao = doacao
+        bolsaSangue.situacaoBolsa = SituacaoBolsa.findByNome("AGUARDANDO EXAMES");
         bolsaSangue.save(flush: true, failOnError: true)
     }
 }

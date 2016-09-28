@@ -26,7 +26,9 @@
 						<g:sortableColumn property="codigo" title="${message(code: 'bolsaSangue.codigo.label', default: 'Codigo')}" />
 					
 						<th><g:message code="bolsaSangue.grupoSanguineo.label" default="Grupo Sanguineo" /></th>
-					
+
+						<th><g:message code="bolsaSangue.situacaoBolsa.label" default="Situação da Bolsa" /></th>
+
 						<th><g:message code="bolsaSangue.doacao.label" default="Doacao" /></th>
 					
 					</tr>
@@ -39,7 +41,9 @@
 						<td><g:link action="exibir" id="${bolsaSangueInstance.id}">${fieldValue(bean: bolsaSangueInstance, field: "codigo")}</g:link></td>
 					
 						<td>${fieldValue(bean: bolsaSangueInstance, field: "grupoSanguineo")}</td>
-					
+
+						<td>${fieldValue(bean: bolsaSangueInstance, field: "situacaoBolsa")}</td>
+
 						<td>${fieldValue(bean: bolsaSangueInstance, field: "doacao")}</td>
 					
 					</tr>

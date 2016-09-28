@@ -47,7 +47,14 @@
 					
 				</li>
 				</g:if>
-			
+
+                <g:if test="${bolsaSangueInstance?.situacaoBolsa}">
+                    <li class="fieldcontain">
+                        <span id="situacaoBolsa-label" class="property-label"><g:message code="bolsaSangue.situacaoBolsa.label" default="Situacao Bolsa" /></span>
+                        <span class="property-value" aria-labelledby="situacaoBolsa-label">${bolsaSangueInstance?.situacaoBolsa?.encodeAsHTML()}</span>
+                    </li>
+                </g:if>
+
 			</ol>
 			<g:form url="[resource:bolsaSangueInstance, action:'excluir']" method="DELETE">
 				<fieldset class="buttons">
