@@ -3,7 +3,7 @@ package br.gov.sus.sinasan.doacao.seguranca
 import grails.plugin.springsecurity.annotation.Secured
 
 
-@Secured(['ROLE_USER'])
+@Secured(['ROLE_ADMIN'])
 class PerfilController {
 
     static allowedMethods = [salvar: "POST", excluir: "DELETE"]

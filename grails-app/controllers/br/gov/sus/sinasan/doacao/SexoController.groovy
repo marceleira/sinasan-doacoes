@@ -5,7 +5,7 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-@Secured(['ROLE_USER'])
+@Secured(['ROLE_ADMIN'])
 class SexoController {
 
     static allowedMethods = [salvar: "POST", excluir: "DELETE"]

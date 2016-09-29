@@ -17,18 +17,9 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        def usuario = Usuario.findByUsername('master')
-
-        if(!usuario) {
-
-            def perfil = new Perfil(authority: 'ROLE_USER');
-            perfil.save(flush: true);
-
-            usuario = new Usuario(username: 'master', password: '123');
-            usuario.addToPerfis(perfil)
-            usuario.save(flush: true);
+        if(Usuario.count() == 0) {
+            carregaUsuarios()
         }
-
         if(Estado.count() == 0) {
             carregaEstados()
         }
@@ -54,6 +45,24 @@ class BootStrap {
 
     def destroy = {
     }
+
+    def carregaUsuarios = {
+
+        Perfil perfilAdmin = new Perfil(authority: 'ROLE_ADMIN');
+        perfilAdmin.save(flush: true);
+
+        Perfil perfilWebservice = new Perfil(authority: 'ROLE_WEBSERVICE');
+        perfilWebservice.save(flush: true);
+
+        Usuario usuarioAdmin = new Usuario(username: 'master', password: '123');
+        usuarioAdmin.addToPerfis(perfilAdmin)
+        usuarioAdmin.save(flush: true);
+
+        Usuario usuarioWebservice = new Usuario(username: 'webservice', password: 'teste');
+        usuarioWebservice.addToPerfis(perfilWebservice)
+        usuarioWebservice.save(flush: true);
+    }
+
 
     def carregaMunicipios = {
 

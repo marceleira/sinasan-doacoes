@@ -3,7 +3,7 @@ package br.gov.sus.sinasan.doacao
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_USER'])
+@Secured(['ROLE_WEBSERVICE'])
 class WsController {
 
     def remessaDoacoes = {
@@ -27,6 +27,7 @@ class WsController {
         }
 
         dados.codigo = bolsaSangue.codigo
+        dados.situacaoBolsa = bolsaSangue.situacaoBolsa.toString()
         dados.grupoSanguineo = bolsaSangue.grupoSanguineo.toString()
         dados.dataHoraAgendamento = bolsaSangue.doacao.dataHoraAgendamento.format("dd/MM/yyyy - HH:mm:ss")
         dados.unidadeLaboratorial = bolsaSangue.doacao.unidadeLaboratorial.nome
