@@ -3,7 +3,7 @@ package br.gov.sus.sinasan.doacao
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_WEBSERVICE'])
+@Secured(['ROLE_WEBSERVICE','ROLE_ADMIN'])
 class WsController {
 
     def remessaDoacoes = {
