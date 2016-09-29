@@ -14,7 +14,8 @@ class DoacaoService {
             throw new BusinessRuleException("Unidade Laboratorial de código '$codigoLaboratorio' não cadastrada no sistema")
         }
 
-        BufferedReader br = arquivo.newInputStream().newReader()
+        InputStream is = arquivo.newInputStream()
+        BufferedReader br = is.newReader()
 
         String linha
         def dados = [:]
@@ -42,6 +43,8 @@ class DoacaoService {
             salvarDoacao(dados.doador as Doador, dados.doacao as Doacao, dados.bolsa as BolsaSangue)
         }
 
+        br.close();
+        is.close()
     }
 
     def salvarDoacao(Doador doador, Doacao doacao, BolsaSangue bolsaSangue) throws BusinessRuleException {
