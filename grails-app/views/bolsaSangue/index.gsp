@@ -8,12 +8,12 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<div class="nav_grails" role="navigation">
-			<ul>
+		%{--<div class="nav_grails" role="navigation">--}%
+			%{--<ul>--}%
 				%{--<li><g:link class="create" action="criar"><g:message code="default.create.label" args="[entityName]" /></g:link></li>--}%
-				<br />
-			</ul>
-		</div>
+				%{--<br />--}%
+			%{--</ul>--}%
+		%{--</div>--}%
 		<div id="list-bolsaSangue" class="content_grails scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -35,6 +35,13 @@
 
 				</thead>
 				<tbody>
+
+                <g:if test="${!bolsaSangueInstanceCount}">
+                    <tr>
+                        <td colspan="4"><g:message code="default.list.empty" /></td>
+                    </tr>
+                </g:if>
+
 				<g:each in="${bolsaSangueInstanceList}" status="i" var="bolsaSangueInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
