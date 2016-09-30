@@ -25,7 +25,7 @@
 	<body>
 		<div id="grailsLogo" role="banner"><a href="${ createLink(uri: '/') }"><img src="${resource(dir: 'images', file: 'sinasan_logo.png')}" alt="Grails"/></a></div>
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" style="margin-bottom: 10px">
 
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <span class="icon-bar"></span>
