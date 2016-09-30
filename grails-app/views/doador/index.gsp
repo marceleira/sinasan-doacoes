@@ -8,13 +8,13 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<div class="nav" role="navigation">
+		<div class="nav_grails" role="navigation">
 			<ul>
 				%{--<li><g:link class="create" action="criar"><g:message code="default.create.label" args="[entityName]" /></g:link></li>--}%
 				<br />
 			</ul>
 		</div>
-		<div id="list-doador" class="content scaffold-list" role="main">
+		<div id="list-doador" class="content_grails scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
@@ -58,7 +58,7 @@
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
+			<div class="pagination_grails">
 				<g:paginate total="${doadorInstanceCount ?: 0}" />
 			</div>
 		</div>

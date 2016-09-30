@@ -8,13 +8,13 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<div class="nav" role="navigation">
+		<div class="nav_grails" role="navigation">
 			<ul>
 				<li><g:link class="list" action="."><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="criar"><g:message code="default.create.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
-		<div id="show-unidadeLaboratorial" class="content scaffold-show" role="main">
+		<div id="show-unidadeLaboratorial" class="content_grails scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>

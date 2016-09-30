@@ -94,10 +94,10 @@ img {
 	margin: 1em;
 }
 
-.content {
+.content_grails {
 }
 
-.content h1 {
+.content_grails h1 {
 	border-bottom: 1px solid #CCCCCC;
 	margin: 0.8em 1em 0.3em;
 	padding: 0 0.25em;
@@ -107,7 +107,7 @@ img {
 	border: none;
 }
 
-.footer {
+.footer_grails {
 	background: #BF7878;
 	color: #000;
 	clear: both;
@@ -117,7 +117,7 @@ img {
 	min-height: 1em;
 }
 
-.footer a {
+.footer_grails a {
 	color: #5C1717;
 }
 
@@ -134,30 +134,32 @@ img {
 
 /* NAVIGATION MENU */
 
-.nav {
-	background-color: #efefef;
+.nav_grails {
+	/*background-color: #efefef;*/
+    background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
 	padding: 0.5em 0.75em;
-	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-	        box-shadow: 0 0 3px 1px #aaaaaa;
+	   /*-moz-box-shadow: 0 0 3px 1px #aaaaaa;*/
+	/*-webkit-box-shadow: 0 0 3px 1px #aaaaaa;*/
+	        /*box-shadow: 0 0 3px 1px #aaaaaa;*/
 	zoom: 1;
+    border: 1px solid #e7e7e7;
 }
 
-.nav ul {
+.nav_grails ul {
 	overflow: hidden;
 	padding-left: 0;
 	zoom: 1;
 }
 
-.nav li {
+.nav_grails li {
 	display: block;
-	float: left;
+	float: right;
 	list-style-type: none;
 	margin-right: 0.5em;
 	padding: 0;
 }
 
-.nav a {
+.nav_grails a {
 	color: #666666;
 	display: block;
 	padding: 0.25em 0.7em;
@@ -167,38 +169,38 @@ img {
 	        border-radius: 0.3em;
 }
 
-.nav a:active, .nav a:visited {
+.nav_grails a:active, .nav_grails a:visited {
 	color: #666666;
 }
 
-.nav a:focus, .nav a:hover {
+.nav_grails a:focus, .nav_grails a:hover {
 	background-color: #999999;
 	color: #ffffff;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
-.no-borderradius .nav a:focus, .no-borderradius .nav a:hover {
+.no-borderradius .nav_grails a:focus, .no-borderradius .nav_grails a:hover {
 	background-color: transparent;
 	color: #444444;
 	text-decoration: underline;
 }
 
-.nav a.home, .nav a.list, .nav a.create {
+.nav_grails a.home, .nav_grails a.list, .nav_grails a.create {
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
 }
 
-.nav a.home {
+.nav_grails a.home {
 	background-image: url(../images/skin/house.png);
 }
 
-.nav a.list {
+.nav_grails a.list {
 	background-image: url(../images/skin/database_table.png);
 }
 
-.nav a.create {
+.nav_grails a.create {
 	background-image: url(../images/skin/database_add.png);
 }
 
@@ -481,7 +483,7 @@ th:hover, tr:hover {
 
 /* PAGINATION */
 
-.pagination {
+.pagination_grails {
 	border-top: 0;
 	margin: 0;
 	padding: 0.3em 0.2em;
@@ -490,10 +492,11 @@ th:hover, tr:hover {
 	-webkit-box-shadow: 0 0 3px 1px #AAAAAA;
 	        box-shadow: 0 0 3px 1px #AAAAAA;
 	background-color: #EFEFEF;
+    display: block;
 }
 
-.pagination a,
-.pagination .currentStep {
+.pagination_grails a,
+.pagination_grails .currentStep {
 	color: #666666;
 	display: inline-block;
 	margin: 0 0.1em;
@@ -504,16 +507,16 @@ th:hover, tr:hover {
 	        border-radius: 0.3em;
 }
 
-.pagination a:hover, .pagination a:focus,
-.pagination .currentStep {
+.pagination_grails a:hover, .pagination_grails a:focus,
+.pagination_grails .currentStep {
 	background-color: #999999;
 	color: #ffffff;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
-.no-borderradius .pagination a:hover, .no-borderradius .pagination a:focus,
-.no-borderradius .pagination .currentStep {
+.no-borderradius .pagination_grails a:hover, .no-borderradius .pagination_grails a:focus,
+.no-borderradius .pagination_grails .currentStep {
 	background-color: transparent;
 	color: #444444;
 	text-decoration: underline;
