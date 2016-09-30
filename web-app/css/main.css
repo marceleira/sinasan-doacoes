@@ -109,12 +109,13 @@ img {
 
 .footer_grails {
 	background: #BF7878;
-	color: #000;
+	color: #eeeeee;
 	clear: both;
-	font-size: 0.8em;
+	font-size: 1em;
 	margin-top: 1.5em;
 	padding: 1em;
 	min-height: 1em;
+    text-align: right;
 }
 
 .footer_grails a {

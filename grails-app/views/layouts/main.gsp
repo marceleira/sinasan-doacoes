@@ -71,7 +71,9 @@
         </nav>
 
 		<g:layoutBody/>
-		<div class="footer_grails" role="contentinfo"></div>
+		<div class="footer_grails" role="contentinfo">
+            Trabalho de conclusão do curso de Arquitetura de Software Distribuído
+        </div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<r:layoutResources />
         <script src="${resource(dir: 'js', file: 'jquery-1.12.4.min.js')}" type="text/javascript"></script>
