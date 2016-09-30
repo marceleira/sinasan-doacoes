@@ -10,10 +10,10 @@ class UrlMappings {
         "/"(view:"/index")
 
 //      DEFINE A PÁGINA INICIAL DO SISTEMA
-//        "/" {
-//            controller = "carro"
-//            action = "index"
-//        }
+        "/" {
+            controller = "doacao"
+            action = "index"
+        }
 
 
         "500"(view:'/error')
