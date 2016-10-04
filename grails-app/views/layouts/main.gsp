@@ -33,6 +33,7 @@
                 <span class="icon-bar"></span>
             </button>
 
+            <sec:ifLoggedIn>
             <div id="navbar" class="navbar-collapse collapse navHeaderCollapse" style="padding: 0">
                 <ul class="nav navbar-nav">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="float: right; display: none"></button>
@@ -69,6 +70,7 @@
                 </ul>
             </div>
         </nav>
+        </sec:ifLoggedIn>
 
 		<g:layoutBody/>
 		<div class="footer_grails" role="contentinfo">
