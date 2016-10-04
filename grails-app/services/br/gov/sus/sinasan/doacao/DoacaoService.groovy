@@ -49,14 +49,28 @@ class DoacaoService {
 
     def salvarDoacao(Doador doador, Doacao doacao, BolsaSangue bolsaSangue) throws BusinessRuleException {
 
-        doador = Doador.findByCpf(doador.cpf) ?: doador
-        doador.save(flush: true, failOnError: true);
+        Doador doadorInstance = Doador.findByCpf(doador.cpf) ?: new Doador()
+        doadorInstance.properties = doador.properties
+        if(!doadorInstance.validate()) {
+            throw new BusinessRuleException(doadorInstance as Object)
+        }
+        doadorInstance.save(flush: true)
 
-        doacao.doador = doador
-        doacao.save(flush: true, failOnError: true)
+        Doacao doacaoInstance = Doacao.findByDoadorAndDataHoraAgendamentoAndUnidadeLaboratorial(doadorInstance, doacao.dataHoraAgendamento, doacao.unidadeLaboratorial) ?: new Doacao()
+        doacaoInstance.properties = doacao.properties
+        doacaoInstance.doador = doadorInstance
+        if(!doacaoInstance.validate()) {
+            throw new BusinessRuleException(doacaoInstance as Object)
+        }
+        doacaoInstance.save(flush: true)
 
-        bolsaSangue.doacao = doacao
-        bolsaSangue.situacaoBolsa = SituacaoBolsa.findByNome("AGUARDANDO EXAMES");
-        bolsaSangue.save(flush: true, failOnError: true)
+        BolsaSangue bolsaSangueInstance = BolsaSangue.findByDoacao(doacaoInstance) ?: new BolsaSangue()
+        bolsaSangueInstance.properties = bolsaSangue.properties
+        bolsaSangueInstance.doacao = doacaoInstance
+        bolsaSangueInstance.situacaoBolsa = SituacaoBolsa.findByNome("AGUARDANDO EXAMES");
+        if(!bolsaSangueInstance.validate()) {
+            throw new BusinessRuleException(bolsaSangueInstance as Object)
+        }
+        bolsaSangueInstance.save(flush: true)
     }
 }
