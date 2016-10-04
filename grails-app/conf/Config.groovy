@@ -164,9 +164,9 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 ]
 
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                              ['ROLE_USER'],
-	'/index':                         ['ROLE_USER'],
-	'/index.gsp':                     ['ROLE_USER'],
+	'/':                              ['ROLE_ADMIN'],
+	'/index':                         ['ROLE_ADMIN'],
+	'/index.gsp':                     ['ROLE_ADMIN'],
 
 	'/logout/**':                     ['permitAll'],
 	'/login/**':                      ['permitAll'],
