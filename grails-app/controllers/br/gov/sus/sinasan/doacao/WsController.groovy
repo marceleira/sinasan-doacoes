@@ -4,7 +4,7 @@ import br.gov.sus.sinasan.doacao.exceptions.BusinessRuleException
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_WEBSERVICE','ROLE_ADMIN'])
+@Secured(['permitAll'])
 class WsController {
 
     def doacaoService

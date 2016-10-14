@@ -92,8 +92,8 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        jobs.remessas.pendentes = "/home/marcelo/REMESSAS/PENDENTES/"
-        jobs.remessas.processadas = "/home/marcelo/REMESSAS/PROCESSADAS/"
+        jobs.remessas.pendentes = "C:\\Users\\Marcelo\\Remessas\\PENDENTES\\"
+        jobs.remessas.processadas = "C:\\Users\\Marcelo\\Remessas\\PROCESSADAS\\"
     }
     test {
         grails.logging.jul.usebridge = true
@@ -113,9 +113,9 @@ log4j = {
 
     environments {
         development {
-//            root {
-//                info()
-//            }
+            root {
+                info()
+            }
         }
         production {
             appenders {
@@ -155,13 +155,13 @@ grails.plugin.springsecurity.securityConfigType = 'Annotation'
 grails.plugin.springsecurity.adh.useForward = false
 grails.plugin.springsecurity.logout.postOnly = false
 
-// usar autenticação básica apenas para o controller dos webservices
-grails.plugin.springsecurity.useBasicAuth = true
-grails.plugin.springsecurity.basic.realmName = "Webservice sinasan"
-grails.plugin.springsecurity.filterChain.chainMap = [
-        '/ws/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
-        '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
-]
+//// usar autenticação básica apenas para o controller dos webservices
+//grails.plugin.springsecurity.useBasicAuth = true
+//grails.plugin.springsecurity.basic.realmName = "Webservice sinasan"
+//grails.plugin.springsecurity.filterChain.chainMap = [
+//        '/ws/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
+//        '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
+//]
 
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['ROLE_ADMIN'],
