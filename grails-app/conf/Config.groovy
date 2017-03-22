@@ -119,7 +119,7 @@ log4j = {
         }
         production {
             appenders {
-                file name:'file', file:'/var/log/tomcat/sinasan-doacoes.log'
+                file name:'file', file:'/opt/tomcat/logs/sinasan-doacoes.log'
             }
             root {
                 info 'stdout', 'file'
