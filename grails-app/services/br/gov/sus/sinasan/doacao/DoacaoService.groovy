@@ -14,7 +14,8 @@ class DoacaoService {
             throw new BusinessRuleException("Unidade Laboratorial de código '$codigoLaboratorio' não cadastrada no sistema")
         }
 
-        BufferedReader br = arquivo.newInputStream().newReader()
+        InputStream is = arquivo.newInputStream()
+        BufferedReader br = is.newReader()
 
         String linha
         def dados = [:]
@@ -42,17 +43,34 @@ class DoacaoService {
             salvarDoacao(dados.doador as Doador, dados.doacao as Doacao, dados.bolsa as BolsaSangue)
         }
 
+        br.close();
+        is.close()
     }
 
     def salvarDoacao(Doador doador, Doacao doacao, BolsaSangue bolsaSangue) throws BusinessRuleException {
 
-        doador = Doador.findByCpf(doador.cpf) ?: doador
-        doador.save(flush: true, failOnError: true);
+        Doador doadorInstance = Doador.findByCpf(doador.cpf) ?: new Doador()
+        doadorInstance.properties = doador.properties
+        if(!doadorInstance.validate()) {
+            throw new BusinessRuleException(doadorInstance as Object)
+        }
+        doadorInstance.save(flush: true)
 
-        doacao.doador = doador
-        doacao.save(flush: true, failOnError: true)
+        Doacao doacaoInstance = Doacao.findByDoadorAndDataHoraAgendamentoAndUnidadeLaboratorial(doadorInstance, doacao.dataHoraAgendamento, doacao.unidadeLaboratorial) ?: new Doacao()
+        doacaoInstance.properties = doacao.properties
+        doacaoInstance.doador = doadorInstance
+        if(!doacaoInstance.validate()) {
+            throw new BusinessRuleException(doacaoInstance as Object)
+        }
+        doacaoInstance.save(flush: true)
 
-        bolsaSangue.doacao = doacao
-        bolsaSangue.save(flush: true, failOnError: true)
+        BolsaSangue bolsaSangueInstance = BolsaSangue.findByDoacao(doacaoInstance) ?: new BolsaSangue()
+        bolsaSangueInstance.properties = bolsaSangue.properties
+        bolsaSangueInstance.doacao = doacaoInstance
+        bolsaSangueInstance.situacaoBolsa = SituacaoBolsa.findByNome("AGUARDANDO EXAMES");
+        if(!bolsaSangueInstance.validate()) {
+            throw new BusinessRuleException(bolsaSangueInstance as Object)
+        }
+        bolsaSangueInstance.save(flush: true)
     }
 }

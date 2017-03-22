@@ -42,20 +42,20 @@ body {
 	margin: 0 auto;
 	max-width: 960px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
-	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
+	-moz-box-shadow: 0 0 0.3em #5C1717;
+	-webkit-box-shadow: 0 0 0.3em #5C1717;
+	box-shadow: 0 0 0.3em #5C1717;
 }
 
 #grailsLogo {
-	background-color: #abbf78;
+	background-color: #BF7878;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
 .ie6 body,
 .ie7 body,
 .ie8 body {
-	border-color: #255b17;
+	border-color: #5C1717;
 	border-style: solid;
 	border-width: 0 1px;
 }
@@ -65,7 +65,7 @@ body {
 }
 
 a:link, a:visited, a:hover {
-	color: #48802c;
+	color: #802B2B;
 }
 
 a:hover, a:active {
@@ -73,7 +73,7 @@ a:hover, a:active {
 }
 
 h1 {
-	color: #48802c;
+	color: #802B2B;
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
@@ -94,12 +94,12 @@ img {
 	margin: 1em;
 }
 
-.content {
+.content_grails {
 }
 
-.content h1 {
+.content_grails h1 {
 	border-bottom: 1px solid #CCCCCC;
-	margin: 0.8em 1em 0.3em;
+	margin: 1em 1em 0.8em;
 	padding: 0 0.25em;
 }
 
@@ -107,18 +107,19 @@ img {
 	border: none;
 }
 
-.footer {
-	background: #abbf78;
-	color: #000;
+.footer_grails {
+	background: #BF7878;
+	color: #eeeeee;
 	clear: both;
-	font-size: 0.8em;
+	font-size: 1em;
 	margin-top: 1.5em;
 	padding: 1em;
 	min-height: 1em;
+    text-align: right;
 }
 
-.footer a {
-	color: #255b17;
+.footer_grails a {
+	color: #5C1717;
 }
 
 .spinner {
@@ -134,30 +135,32 @@ img {
 
 /* NAVIGATION MENU */
 
-.nav {
-	background-color: #efefef;
+.nav_grails {
+	/*background-color: #efefef;*/
+    background-image: linear-gradient(to bottom,#fff 0,#f8f8f8 100%);
 	padding: 0.5em 0.75em;
-	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-	        box-shadow: 0 0 3px 1px #aaaaaa;
+	   /*-moz-box-shadow: 0 0 3px 1px #aaaaaa;*/
+	/*-webkit-box-shadow: 0 0 3px 1px #aaaaaa;*/
+	        /*box-shadow: 0 0 3px 1px #aaaaaa;*/
 	zoom: 1;
+    border: 1px solid #e7e7e7;
 }
 
-.nav ul {
+.nav_grails ul {
 	overflow: hidden;
 	padding-left: 0;
 	zoom: 1;
 }
 
-.nav li {
+.nav_grails li {
 	display: block;
-	float: left;
+	float: right;
 	list-style-type: none;
 	margin-right: 0.5em;
 	padding: 0;
 }
 
-.nav a {
+.nav_grails a {
 	color: #666666;
 	display: block;
 	padding: 0.25em 0.7em;
@@ -167,38 +170,38 @@ img {
 	        border-radius: 0.3em;
 }
 
-.nav a:active, .nav a:visited {
+.nav_grails a:active, .nav_grails a:visited {
 	color: #666666;
 }
 
-.nav a:focus, .nav a:hover {
+.nav_grails a:focus, .nav_grails a:hover {
 	background-color: #999999;
 	color: #ffffff;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
-.no-borderradius .nav a:focus, .no-borderradius .nav a:hover {
+.no-borderradius .nav_grails a:focus, .no-borderradius .nav_grails a:hover {
 	background-color: transparent;
 	color: #444444;
 	text-decoration: underline;
 }
 
-.nav a.home, .nav a.list, .nav a.create {
+.nav_grails a.home, .nav_grails a.list, .nav_grails a.create {
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
 }
 
-.nav a.home {
+.nav_grails a.home {
 	background-image: url(../images/skin/house.png);
 }
 
-.nav a.list {
+.nav_grails a.list {
 	background-image: url(../images/skin/database_table.png);
 }
 
-.nav a.create {
+.nav_grails a.create {
 	background-image: url(../images/skin/database_add.png);
 }
 
@@ -283,7 +286,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .required-indicator {
-	color: #48802C;
+	color: #802B2B;
 	display: inline-block;
 	font-weight: bold;
 	margin-left: 0.3em;
@@ -347,9 +350,9 @@ fieldset.embedded legend {
 	background: #fff3f3;
 	border: 1px solid #ffaaaa;
 	color: #cc0000;
-	   -moz-box-shadow: 0 0 0.25em #ff8888;
+	-moz-box-shadow: 0 0 0.25em #ff8888;
 	-webkit-box-shadow: 0 0 0.25em #ff8888;
-	        box-shadow: 0 0 0.25em #ff8888;
+	box-shadow: 0 0 0.25em #ff8888;
 }
 
 .errors ul,
@@ -377,9 +380,9 @@ fieldset.embedded legend {
 }
 
 .error input:focus, .error select:focus, .error textarea:focus {
-	   -moz-box-shadow: 0 0 0.5em #ffaaaa;
+	-moz-box-shadow: 0 0 0.5em #ffaaaa;
 	-webkit-box-shadow: 0 0 0.5em #ffaaaa;
-	        box-shadow: 0 0 0.5em #ffaaaa;
+	box-shadow: 0 0 0.5em #ffaaaa;
 }
 
 /* same effects for browsers that support HTML5 client-side validation (these have to be specified separately or IE will ignore the entire rule) */
@@ -391,9 +394,9 @@ input:invalid, select:invalid, textarea:invalid {
 }
 
 input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
-	   -moz-box-shadow: 0 0 0.5em #ffaaaa;
+	-moz-box-shadow: 0 0 0.5em #ffaaaa;
 	-webkit-box-shadow: 0 0 0.5em #ffaaaa;
-	        box-shadow: 0 0 0.5em #ffaaaa;
+	box-shadow: 0 0 0.5em #ffaaaa;
 }
 
 /* TABLES */
@@ -428,7 +431,7 @@ th {
 	background-color: #efefef;
 	background-image: -moz-linear-gradient(top, #ffffff, #eaeaea);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #eaeaea));
-	    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#ffffff', EndColorStr = '#eaeaea');
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#ffffff', EndColorStr = '#eaeaea');
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eaeaea')";
 	color: #666666;
 	font-weight: bold;
@@ -468,7 +471,7 @@ th.desc a {
 }
 
 .odd {
-	background: #f7f7f7;
+	background: #F7F7F7;
 }
 
 .even {
@@ -476,12 +479,12 @@ th.desc a {
 }
 
 th:hover, tr:hover {
-	background: #E1F2B6;
+	background: #F2B6B6;
 }
 
 /* PAGINATION */
 
-.pagination {
+.pagination_grails {
 	border-top: 0;
 	margin: 0;
 	padding: 0.3em 0.2em;
@@ -490,10 +493,11 @@ th:hover, tr:hover {
 	-webkit-box-shadow: 0 0 3px 1px #AAAAAA;
 	        box-shadow: 0 0 3px 1px #AAAAAA;
 	background-color: #EFEFEF;
+    display: block;
 }
 
-.pagination a,
-.pagination .currentStep {
+.pagination_grails a,
+.pagination_grails .currentStep {
 	color: #666666;
 	display: inline-block;
 	margin: 0 0.1em;
@@ -504,16 +508,16 @@ th:hover, tr:hover {
 	        border-radius: 0.3em;
 }
 
-.pagination a:hover, .pagination a:focus,
-.pagination .currentStep {
+.pagination_grails a:hover, .pagination_grails a:focus,
+.pagination_grails .currentStep {
 	background-color: #999999;
 	color: #ffffff;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
-.no-borderradius .pagination a:hover, .no-borderradius .pagination a:focus,
-.no-borderradius .pagination .currentStep {
+.no-borderradius .pagination_grails a:hover, .no-borderradius .pagination_grails a:focus,
+.no-borderradius .pagination_grails .currentStep {
 	background-color: transparent;
 	color: #444444;
 	text-decoration: underline;

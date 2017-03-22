@@ -2,7 +2,7 @@ package br.gov.sus.sinasan.doacao
 
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_USER'])
+@Secured(['ROLE_ADMIN'])
 class EstadoController {
 
     static allowedMethods = [salvar: "POST", excluir: "DELETE"]

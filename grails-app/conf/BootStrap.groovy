@@ -4,6 +4,7 @@ import br.gov.sus.sinasan.doacao.Hospital
 import br.gov.sus.sinasan.doacao.Laboratorio
 import br.gov.sus.sinasan.doacao.Municipio
 import br.gov.sus.sinasan.doacao.Sexo
+import br.gov.sus.sinasan.doacao.SituacaoBolsa
 import br.gov.sus.sinasan.doacao.UnidadeHospitalar
 import br.gov.sus.sinasan.doacao.UnidadeLaboratorial
 import br.gov.sus.sinasan.doacao.seguranca.Perfil
@@ -16,18 +17,9 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        def usuario = Usuario.findByUsername('master')
-
-        if(!usuario) {
-
-            def perfil = new Perfil(authority: 'ROLE_USER');
-            perfil.save(flush: true);
-
-            usuario = new Usuario(username: 'master', password: '123');
-            usuario.addToPerfis(perfil)
-            usuario.save(flush: true);
+        if(Usuario.count() == 0) {
+            carregaUsuarios()
         }
-
         if(Estado.count() == 0) {
             carregaEstados()
         }
@@ -46,10 +38,31 @@ class BootStrap {
         if(GrupoSanguineo.count() == 0) {
             carregaGrupoSanguineo()
         }
+        if(SituacaoBolsa.count() == 0) {
+            carregaSituacao()
+        }
     }
 
     def destroy = {
     }
+
+    def carregaUsuarios = {
+
+        Perfil perfilAdmin = new Perfil(authority: 'ROLE_ADMIN');
+        perfilAdmin.save(flush: true);
+
+        Perfil perfilWebservice = new Perfil(authority: 'ROLE_WEBSERVICE');
+        perfilWebservice.save(flush: true);
+
+        Usuario usuarioAdmin = new Usuario(username: 'master', password: '123');
+        usuarioAdmin.addToPerfis(perfilAdmin)
+        usuarioAdmin.save(flush: true);
+
+        Usuario usuarioWebservice = new Usuario(username: 'webservice', password: 'teste');
+        usuarioWebservice.addToPerfis(perfilWebservice)
+        usuarioWebservice.save(flush: true);
+    }
+
 
     def carregaMunicipios = {
 
@@ -176,6 +189,15 @@ class BootStrap {
         new GrupoSanguineo(codigo: "A-").save()
         new GrupoSanguineo(codigo: "B-").save()
         new GrupoSanguineo(codigo: "AB-").save()
+    }
+
+    def carregaSituacao = {
+        new SituacaoBolsa(nome: "AGUARDANDO EXAMES").save()
+        new SituacaoBolsa(nome: "REALIZANDO EXAMES").save()
+        new SituacaoBolsa(nome: "EM ESTOQUE").save()
+        new SituacaoBolsa(nome: "ENCAMINHADA AO HOSPITAL").save()
+        new SituacaoBolsa(nome: "RECEBIDA PELO HOSPITAL").save()
+        new SituacaoBolsa(nome: "DESCARTE").save()
     }
 
 }

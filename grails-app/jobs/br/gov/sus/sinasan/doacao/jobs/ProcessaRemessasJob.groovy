@@ -3,6 +3,10 @@ package br.gov.sus.sinasan.doacao.jobs
 import grails.util.Holders
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption
 
 class ProcessaRemessasJob {
 
@@ -55,7 +59,7 @@ class ProcessaRemessasJob {
         if(contArquivos) {
             log.info("$contArquivos arquivo(s) processado(s) com sucesso!");
         }
-        log.info("PROCESSAMENTO FINALIZADO COM SUCESSO!");
+        log.info("PROCESSAMENTO FINALIZADO!");
 
     }
 
@@ -70,7 +74,9 @@ class ProcessaRemessasJob {
     }
 
     def moveArquivoProcessado(File arquivo) {
-        arquivo.renameTo(new File((String)Holders.config.jobs.remessas.processadas + arquivo.getName()))
+        Path source = Paths.get((String)Holders.config.jobs.remessas.pendentes + arquivo.getName());
+        Path newdir = Paths.get((String)Holders.config.jobs.remessas.processadas + arquivo.getName());
+        Files.move(source, newdir, StandardCopyOption.REPLACE_EXISTING);
     }
 
 }

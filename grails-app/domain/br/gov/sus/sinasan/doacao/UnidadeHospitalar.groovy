@@ -26,7 +26,7 @@ class UnidadeHospitalar {
     }
 
     String toString() {
-        Hospital.get(this.hospitalId).nome + ' - ' + this.nome
+        this?.hospital?.nome + ' - ' + this.nome
     }
 
 }
