@@ -11,7 +11,7 @@ class UrlMappings {
 
 //      DEFINE A PÁGINA INICIAL DO SISTEMA
         "/" {
-            controller = "doacao"
+            controller = "bolsaSangue"
             action = "index"
         }
 
