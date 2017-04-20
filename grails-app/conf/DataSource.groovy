@@ -20,7 +20,7 @@ environments {
             dbCreate = "update"
 //            dbCreate = "none"
 //            dbCreate = "create-drop"
-            url = "jdbc:mysql://localhost:3306/sinasan"
+            url = "jdbc:mysql://localhost:3306/sinasan?autoReconnect=true"
         }
     }
     test {
@@ -28,7 +28,7 @@ environments {
             username = "sinasan"
             password = "app"
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/sinasan"
+            url = "jdbc:mysql://localhost:3306/sinasan?autoReconnect=true"
         }
     }
     production {
@@ -36,7 +36,7 @@ environments {
             username = "sinasan"
             password = "app"
             dbCreate = "update"
-            url = "jdbc:mysql://localhost:3306/sinasan"
+            url = "jdbc:mysql://localhost:3306/sinasan?autoReconnect=true"
         }
     }
 }
